@@ -44,7 +44,5 @@ def exibircapital ():
 #        	 return "Os dados recebidos foram: usuario = {} e senha = {}".format(usuario, senha)
 
 
-
-
 if __name__ == '__main__':
     app.run()
