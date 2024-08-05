@@ -4,11 +4,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Página inicial'
+    return render_template('index.html')
 
 @app.route('/cadastro')
 def cadastro():
-    return render_template('cadastrarcidade.html')
+    return render_template('cadastro.html')
 
 @app.route('/cadastrarcidade')
 def cadastrarcidade():
