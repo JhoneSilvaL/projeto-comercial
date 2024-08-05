@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+  <html> 
+    <head>
+      <title>Capitais</title>
+    </head>
+    <body>
+      <h2>Escolha a capital que deseja ver: </h2>
+      <form action="{{url_for('exibircapital')}}" method="POST">
+        <select name="capitais">
+          <option value="macapa">Macapá</option>
+          <option value="maceio">Maceió</option>
+          <option value="rioBranco">Rio Branco</option>
+        </select>
+        <button type="submit">Enviar</button>
+      </form>
+    </body>
+  </html>
