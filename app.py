@@ -22,6 +22,14 @@ def cadastrarcidade():
 def resultado():
     return render_template('resultadocadastro.html')
 
+
+
+@app.route('/modelo')
+def modelo ():
+    return render_template('painelmodelo.html')
+
+
+
 #escolhe a imagem capital
 @app.route('/escolhacapital')
 def escolhacapital ():
