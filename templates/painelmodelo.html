@@ -11,29 +11,33 @@
 </head>
 
 <body>
-    <nav class="navbar justify-content-center bg-body-tertiary" data-bs-theme="dark">
-        <ul class="nav nav-underline">
-            <li class="nav-item">
-                <a class="nav-link" href="{{url_for('index')}}">Página Inicial</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url_for('cadastro')}}">Cadastrar Capitais</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Excluir Capitais</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Exibir Capitais</a>
-            </li>
-        </ul>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container justify-content-center">
+            <div class="collapse navbar-collapse flex-grow-0">
+                <ul class="navbar-nav nav-underline">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('index')}}">Página Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('cadastro')}}">Cadastrar Capitais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Excluir Capitais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Exibir Capitais</a>
+                    </li>
+                </ul>
+                <!-- <nav class="navbar-expand-lg"> -->
+                    <div class="justify-content-center">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                <!-- </nav> -->
             </div>
-        </nav>
+        </div>
     </nav>
     <main>
         {% block conteudo %}
