@@ -1,7 +1,18 @@
 img {
     border-radius: 0%;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centraliza o botão horizontalmente */
+    align-items: center;     /* Centraliza o botão verticalmente */
+  }
+  
+  .btn-img {
+    width: 24px; /* Altere o valor conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
   }
 
   
