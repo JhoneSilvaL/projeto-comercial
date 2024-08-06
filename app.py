@@ -26,17 +26,6 @@ def confirmaCadastro():
 def exibirCapitais():
     return render_template('exibirCapitais.html')
 
-#escolhe a imagem capital
-# @app.route('/escolhacapital')
-# def escolhacapital ():
-#     return render_template('escolheCapital.html')
-
-# #exibe a imagem capital
-# @app.route('/exibircapital', methods=['POST'])
-# def exibircapital ():
-#     capital = request.form['capitais']
-#     return render_template('exibirCapitais.html', capitais=capital)
-
 # @app.route('/autenticar', methods=['POST'])
 # def autenticar():
 #     usuario = request.form.get("usuario")
