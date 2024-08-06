@@ -8,38 +8,34 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('login.html')
 
-@app.route('/cadastro')
-def cadastro():
-    return render_template('cadastro.html')
+@app.route('/pagina-inicial')
+def paginaInicial ():
+    return render_template('paginaInicial.html')
 
-@app.route('/cadastrarcidade')
-def cadastrarcidade():
-    return render_template('inicial.html')
+@app.route('/cadastro-capitais')
+def cadastroCapitais():
+    return render_template('cadastroCapitais.html')
 
-@app.route('/resultado')
-def resultado():
+@app.route('/confirmar-cadastro')
+def confirmaCadastro():
     return render_template('resultadocadastro.html')
 
-
-
-@app.route('/modelo')
-def modelo ():
-    return render_template('painelmodelo.html')
-
-
+@app.route('/exibir-capitais')
+def exibirCapitais():
+    return render_template('exibirCapitais.html')
 
 #escolhe a imagem capital
-@app.route('/escolhacapital')
-def escolhacapital ():
-    return render_template('escolheCapital.html')
+# @app.route('/escolhacapital')
+# def escolhacapital ():
+#     return render_template('escolheCapital.html')
 
-#exibe a imagem capital
-@app.route('/exibircapital', methods=['POST'])
-def exibircapital ():
-    capital = request.form['capitais']
-    return render_template('exibirCapitais.html', capitais=capital)
+# #exibe a imagem capital
+# @app.route('/exibircapital', methods=['POST'])
+# def exibircapital ():
+#     capital = request.form['capitais']
+#     return render_template('exibirCapitais.html', capitais=capital)
 
 # @app.route('/autenticar', methods=['POST'])
 # def autenticar():
