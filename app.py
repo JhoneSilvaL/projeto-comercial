@@ -4,15 +4,15 @@ from flask import flash, redirect
 
 
 app = Flask(__name__)
-# app.config['SECRET_kEY'] = 'aluno123'
+app.config['SECRET_kEY'] = 'aluno123'
 
 @app.route('/')
 def index():
-    return render_template('login.html')
-
-@app.route('/pagina-inicial')
-def paginaInicial ():
     return render_template('paginaInicial.html')
+
+@app.route('/login')
+def login ():
+    return render_template('login.html')
 
 @app.route('/cadastro-capitais')
 def cadastroCapitais():
@@ -26,15 +26,15 @@ def confirmaCadastro():
 def exibirCapitais():
     return render_template('exibirCapitais.html')
 
-# @app.route('/autenticar', methods=['POST'])
-# def autenticar():
-#     usuario = request.form.get("usuario")
-#     senha = request.form.get("senha")
-#     if usuario != 'admin' or senha != 'senha123':
-#        flash("Login ou senha incorretos")
-#        return redirect("/login")
-#     else:
-#        	 return "Os dados recebidos foram: usuario = {} e senha = {}".format(usuario, senha)
+@app.route('/autenticar', methods=['POST'])
+def autenticar():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+    if usuario != 'admin' or senha != 'senha123':
+       flash("Login ou senha incorretos")
+       return redirect("/login")
+    else:
+       	 return "Os dados recebidos foram: usuario = {} e senha = {}".format(usuario, senha)
 
 
 if __name__ == '__main__':
