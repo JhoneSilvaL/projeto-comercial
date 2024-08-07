@@ -17,10 +17,8 @@ img {
   .custom-navbar {
     background-color: #1058a0; /* Cor de fundo personalizada */
   }
-  .custom-navbar .navbar-brand {
-    font-size: 2.0rem; /* Tamanho da fonte */
-  }
   .custom-navbar .nav-link {
+    font-size: 1.0rem; /* Tamanho da fonte */
     color: #f8f9fa; /* Cor do texto dos links */
   }
   .custom-navbar .nav-link:hover {
