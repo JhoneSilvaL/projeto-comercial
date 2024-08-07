@@ -17,12 +17,29 @@ img {
   .custom-navbar {
     background-color: #1058a0; /* Cor de fundo personalizada */
   }
+  
+  /* Estilo base para os links da navbar */
   .custom-navbar .nav-link {
-    font-size: 1.0rem; /* Tamanho da fonte */
-    color: #f8f9fa; /* Cor do texto dos links */
+    font-size: 1.0rem; /* Tamanho da fonte dos links */
+    color: #f8f9fa; /* Cor padrão do texto dos links */
+    text-decoration: none; /* Remove sublinhado dos links */
+    padding: 0.5rem 1rem; /* Espaçamento interno dos links */
   }
+  
+  /* Estilo para links ao passar o mouse */
   .custom-navbar .nav-link:hover {
     color: #ffc107; /* Cor do texto ao passar o mouse */
   }
-
   
+  /* Media queries para tamanhos de tela menores */
+  @media (max-width: 768px) {
+    .custom-navbar .nav-link {
+      font-size: 0.9rem; /* Reduz o tamanho da fonte dos links em telas menores */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .custom-navbar .nav-link {
+      font-size: 0.8rem; /* Reduz ainda mais o tamanho da fonte dos links em telas muito pequenas */
+    }
+  }
