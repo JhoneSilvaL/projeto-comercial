@@ -14,5 +14,17 @@ img {
     width: 24px; /* Altere o valor conforme necessário */
     height: auto; /* Mantém a proporção da imagem */
   }
+  .custom-navbar {
+    background-color: #1058a0; /* Cor de fundo personalizada */
+  }
+  .custom-navbar .navbar-brand {
+    font-size: 2.0rem; /* Tamanho da fonte */
+  }
+  .custom-navbar .nav-link {
+    color: #f8f9fa; /* Cor do texto dos links */
+  }
+  .custom-navbar .nav-link:hover {
+    color: #ffc107; /* Cor do texto ao passar o mouse */
+  }
 
   
