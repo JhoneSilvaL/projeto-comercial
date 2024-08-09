@@ -14,6 +14,10 @@ def index():
 def login ():
     return render_template('login.html')
 
+@app.route('/novo-usuario')
+def novoUsuario ():
+    return render_template('cadastroUsuario')
+
 @app.route('/cadastro-capitais')
 def cadastroCapitais():
     return render_template('cadastroCapitais.html')
