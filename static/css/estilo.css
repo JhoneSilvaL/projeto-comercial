@@ -68,3 +68,33 @@ img {
 .caption a:hover {
   text-decoration: underline;
 }
+
+ /* Estilo adicional para centralizar o conteúdo */
+ .container {
+  margin-top: 50px;
+}
+.figure-container {
+  text-align: center;
+}
+.figure-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Adiciona bordas arredondadas à imagem */
+}
+.figure-caption {
+  font-size: 0.875rem; /* Ajusta o tamanho da fonte para a legenda */
+  color: #6c757d; /* Cor do texto da legenda */
+  margin-top: 10px; /* Espaço acima da legenda */
+  max-width: 400px; /* Largura máxima da legenda */
+  width: 100%; /* Garante que a largura da legenda não exceda o máximo definido */
+  margin-left: auto; /* Centraliza a legenda horizontalmente */
+  margin-right: auto; /* Centraliza a legenda horizontalmente */
+  text-align: center; /* Centraliza o texto dentro da legenda */
+}
+.figure-caption a {
+  color: #007bff; /* Cor do link */
+  text-decoration: none;
+}
+.figure-caption a:hover {
+  text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
