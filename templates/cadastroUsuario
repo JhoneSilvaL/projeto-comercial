@@ -4,7 +4,7 @@
 
     <div class="caixa">
 
-        <img src="static/img/usuario.png" alt="">
+        <img src="static/imgs/logo.jpg" alt="">
         <h1>CADASTRO</h1>
 
         <div class="name">

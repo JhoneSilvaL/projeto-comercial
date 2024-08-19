@@ -43,3 +43,28 @@ img {
       font-size: 0.8rem; /* Reduz ainda mais o tamanho da fonte dos links em telas muito pequenas */
     }
   }
+
+/* imagem exibirCapitais */
+.container {
+  margin-top: 50px;
+}
+.img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.img-container img {
+  max-width: 100%;
+  height: auto;
+}
+.img-container .caption {
+  margin-top: 10px;
+}
+.caption a {
+  color: #007bff;
+  text-decoration: none;
+}
+.caption a:hover {
+  text-decoration: underline;
+}

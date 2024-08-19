@@ -1,14 +1,16 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-    <h1>Exibir Capitais</h1>
-    <img src="{{ url_for ('static', filename='imgs/capitais/macapa.png')}}"/>
-    <p>
-      Macapá (AFI: /makaˈpa/) é um município brasileiro, capital do estado do Amapá, Região Norte do país. Sua população em 2022 é de 442 933 habitantes, sendo o 52° município mais populoso do Brasil e o quinto mais populoso da Região Norte.[1] Situa-se no sudeste do estado e é a única capital estadual brasileira que não possui interligação por rodovia a outras capitais.[8] Além disso, é a única cortada pela linha do Equador e que se localiza no delta do rio Amazonas, distando 1 791 quilômetros de Brasília.
-
-O município detém o 94º maior produto interno bruto da nação, com 8,9 bilhões de reais e é a quinta cidade mais rica do norte brasileiro, respondendo por 2,85% de todo o produto interno bruto (PIB) da região. Na Amazônia, é a terceira maior aglomeração urbana, com 3,5% da população de toda a Região Norte do Brasil, reunindo em sua região metropolitana quase 560 mil habitantes. Aproximadamente 60% da população do estado está na capital.[9] Sua área é de 6.407 km² representando 4,4863 % do Estado, 0,1663 % da Região e 0,0754 % de todo o território brasileiro.[10] De acordo com o Anuário Brasileiro de Segurança Pública de 2022, a capital ficou em primeiro lugar entre as cidades mais violentas do país.
-    </p>
-    <img src="{{ url_for ('static', filename='imgs/capitais/maceio.png')}}"/>
-    <p>
-      Maceió, é a capital do estado de Alagoas, na costa leste do Brasil. O seu centro histórico alberga casas coloniais cor de pastel, uma catedral do século XIX e o Museu Théo Brandão de Antropologia e Folclore, localizado numa mansão renovada à beira-mar. Protegida por um recife, a costa tem inúmeras praias de areia branca. A Praia de Ponta Verde oferece um passeio repleto de palmeiras, quiosques na praia e desportos aquáticos.
-    </p>
+<div class="container">
+  <div class="img-container">
+      <!-- Link para a imagem e legenda -->
+      <a href="https://example.com" class="d-block">
+          <!-- Imagem com classe Bootstrap para responsividade -->
+          <img src="static/imgs/capitais/macapa.png" alt="ABCD" class="img-fluid">
+          <!-- Legenda da imagem -->
+          <div class="caption">
+              <p>Veja mais sobre esta imagem <a href="https://example.com">aqui</a></p>
+          </div>
+      </a>
+  </div>
+</div>
 {% endblock %}
