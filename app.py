@@ -3,7 +3,7 @@ import json, os
 from flask_migrate import Migrate
 from models import *
 from flask import flash, redirect
-from utils import db
+from utils import db, lm
 
 
 app = Flask(__name__)
