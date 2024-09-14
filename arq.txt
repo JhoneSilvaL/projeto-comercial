@@ -1,0 +1,5 @@
+pip freeze > requirements.txt
+
+rodar em outra máquina sem precisar baixar dependência
+pip install -r requirements.txt  
+
