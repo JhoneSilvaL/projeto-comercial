@@ -4,15 +4,15 @@ from models.cidade import Cidade
 from flask import Blueprint
 from flask_login import login_required
 
-bp_diario = Blueprint("cidade", __name__, template_folder='templates')
+bp_cidade = Blueprint("cidade", __name__, template_folder='templates')
 
-@bp_diario.route('/recovery')
+@bp_cidade.route('/recovery')
 @login_required
 def recovery():
     dados = Cidade.query.all()
     return render_template('cidade_recovery.html', dados=dados)
 
-@bp_diario.route('/create', methods=['GET', 'POST'])
+@bp_cidade.route('/create', methods=['GET', 'POST'])
 @login_required
 def create():
     if request.method=="GET":
@@ -28,7 +28,7 @@ def create():
         db.session.commit()
         return redirect(url_for('cidade.recovery'))
 
-@bp_diario.route('/update/<id>', methods=['GET', 'POST'])
+@bp_cidade.route('/update/<id>', methods=['GET', 'POST'])
 @login_required
 def update(id):
     c = Cidade.query.get(id)
@@ -46,7 +46,7 @@ def update(id):
         return redirect(url_for('cidade.recovery'))
 
 
-@bp_diario.route('/delete/<id>', methods=['GET', 'POST'])
+@bp_cidade.route('/delete/<id>', methods=['GET', 'POST'])
 @login_required
 def delete(id):
     c = Cidade.query.get(id)

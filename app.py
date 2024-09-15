@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, flash
 import json, os
 from flask_migrate import Migrate
 from models import *
-from models import Cidade
+## from models import Cidade
 from flask import flash, redirect
 from utils import db, lm
 from controllers.cidade import bp_cidade
