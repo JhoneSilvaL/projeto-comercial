@@ -17,7 +17,7 @@ a {
     flex-direction: row;
 }
 
-.name input {
+.nome input {
     border-radius: 15px;
     border: none;
     width: 250px;
@@ -28,7 +28,7 @@ a {
     margin-bottom: 15px;
 }
 
-.senhac input {
+.senha input {
     border-radius: 15px;
     border: none;
     width: 250px;
@@ -58,7 +58,7 @@ a {
     padding-left: 15px;
     background-color: #1e1c2e;
     color: #b6b6b6;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 
 }
 
@@ -107,7 +107,7 @@ a {
     margin-top: 15px;
 }
 
-.entrar input {
+.cadastrar input {
     cursor: pointer;
     width: 120px;
     height: 40px;
@@ -117,7 +117,7 @@ a {
     color: #faf9f9;
 }
 
-.entrar input::hover{
+.cadastrar input::hover{
     background-color: #0056b3;
 }
 

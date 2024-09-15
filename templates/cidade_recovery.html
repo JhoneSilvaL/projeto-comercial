@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
+{% extends "painelmodelo.html" %}
 {% block conteudo %}
     <p>
-        <a href="{{url_for('diario.create', id=id)}}">Novo diário</a>
+        <a href="{{url_for('cidade.create', id=id)}}">Nova Cidade</a>
     </p>
     <ul>
     {% for d in dados %}
         <li>
            {{d.titulo}} - {{d.disciplina}}
-           <a href="{{url_for('cidade.update', id=d.id)}}">editar</a>
-           <a href="{{url_for('cidade.delete', id=d.id)}}">excluir</a>
+           <a href="{{url_for('cidade.update', id=c.id)}}">editar</a>
+           <a href="{{url_for('cidade.delete', id=c.id)}}">excluir</a>
         </li>
     {% endfor %}
     </ul>
