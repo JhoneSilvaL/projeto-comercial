@@ -1,34 +1,36 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-<div id="login">
+<form action="{{url_for('usuario.create')}}" method="post">
+    <div id="login">
 
-    <div class="caixa">
+        <div class="caixa">
 
-        <img src="static/imgs/usuario.png" alt="">
-        <h1>CADASTRO</h1>
+            <img src="static/imgs/usuario.png" alt="">
+            <h1>CADASTRO</h1>
 
-        <div class="name">
-            <input type="text" placeholder="Nome">
-        </div>
+            <div class="name">
+                <input type="text" placeholder="Nome">
+            </div>
 
-        <div class="email">
-            <input type="email" placeholder="E-mail">
-        </div>
+            <div class="email">
+                <input type="email" placeholder="E-mail">
+            </div>
 
-        <div class="senha">
-            <input type="password" placeholder="Senha">
-        </div>
+            <div class="senha">
+                <input type="password" placeholder="Senha">
+            </div>
 
-        <div class="senhaconf">
-            <input type="password" placeholder="Confirmar Senha">
-        </div>
+            <div class="senhaconf">
+                <input type="password" placeholder="Confirmar Senha">
+            </div>
 
-        <div class="entrar">
-            <p>Já tem uma conta? <a href="/">Entre aqui.</a></p>
-            <input type="submit" value="Entrar">
+            <div class="entrar">
+                <p>Já tem uma conta? <a href="/">Entre aqui.</a></p>
+                <input type="submit" value="Entrar">
+            </div>
+
         </div>
 
     </div>
-
-</div>
+</form>
 {% endblock %}
