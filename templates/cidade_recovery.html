@@ -1,7 +1,7 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
 
-    <a href="{{url_for('cidade_create', id=id)}}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Nova Cidade</a>
+    <a href="{{url_for('cidade.create')}}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Nova Cidade</a>
     <!-- <a href="{{url_for('cidade_create', id=id)}}">Nova Cidade</a> -->
     <ul>
     {% for c in dados %}
