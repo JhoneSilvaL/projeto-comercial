@@ -1,12 +1,12 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
     <p>
-        <a href="{{url_for('cidade.create', id=id)}}">Nova Cidade</a>
+        <a href="{{url_for('cidade_create', id=id)}}">Nova Cidade</a>
     </p>
     <ul>
-    {% for d in dados %}
+    {% for c in dados %}
         <li>
-           {{d.titulo}} - {{d.disciplina}}
+            {{c.nome}} - {{c.email}} {{c.cidade}} - {{c.estado}}
            <a href="{{url_for('cidade.update', id=c.id)}}">editar</a>
            <a href="{{url_for('cidade.delete', id=c.id)}}">excluir</a>
         </li>

@@ -2,7 +2,7 @@
 {% block conteudo %}
 
 <form action="{{url_for('cidade.delete', id=c.id)}}" method="POST">
-  Você realmente deseja excluir a disciplina {{d.disciplina}}?
+  Você realmente deseja excluir a Cidade {{c.cidade}}?
   <input type="submit" name="Sim">
 </form>
 <a href="{{url_for('cidade.recovery')}}">Cancelar</a>

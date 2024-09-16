@@ -1,6 +1,6 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-<form action="{{url_for('cidade.update', id=c.id)}}" method="POST"></form>
+<form action="{{url_for('cidade.update', id=c.id)}}" method="POST">
     <div id="login">
 
     <div class="caixa">
@@ -8,31 +8,29 @@
         <img src="static/imgs/logo.jpg" alt="">
         <h1>Cadastre sua Cidade e Estado</h1>
 
-        <div class="name">
-            <input type="text" placeholder="Nome">
+        <div class="nome">
+            <input type="text" name="nome" placeholder="Nome" value="{{c.nome}}">
         </div>
 
         <div class="email">
-            <input type="email" placeholder="E-mail">
+            <input type="email" name="email" placeholder="E-mail" value="{{c.email}}">
         </div>
 
         <div class="cidade">
-            <input type="text" placeholder="Cidade">
+            <input type="text" name="cidade" placeholder="Cidade" value="{{c.cidade}}">
         </div>
 
         <div class="estado">
-            <input type="text" placeholder="Estado">
+            <input type="text" name="estado" placeholder="Estado" value="{{c.estado}}">
         </div>
-
-
 
         <div class="entrar"><br>
         
-            <input type="submit" value="Cadastrar">
+            <button type="submit" value="Cadastrar">Cadastrar</button>
         </div>
 
     </div>
 
     </div>
-
+</form>
 {% endblock %}

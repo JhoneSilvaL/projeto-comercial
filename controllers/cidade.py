@@ -22,8 +22,8 @@ def create():
         nome = request.form['nome']
         email = request.form['email']
         cidade = request.form['cidade']
-        capital = request.form['capital']
-        c = Cidade(nome, email, cidade, capital)
+        estado = request.form['estado']
+        c = Cidade(nome, email, cidade, estado)
         db.session.add(c)
         db.session.commit()
         return redirect(url_for('cidade.recovery'))
@@ -40,7 +40,7 @@ def update(id):
         c.nome = request.form['nome']
         c.email = request.form['email']
         c.cidade = request.form['cidade']
-        c.capital = request.form['capital']
+        c.estado = request.form['estado']
         db.session.add(c)
         db.session.commit()
         return redirect(url_for('cidade.recovery'))

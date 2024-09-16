@@ -58,9 +58,10 @@ a {
     padding-left: 15px;
     background-color: #1e1c2e;
     color: #b6b6b6;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 
 }
+
 
 .cidade input {
     border-radius: 15px;
@@ -149,9 +150,10 @@ h1 {
 }
 
 .caixa img {
-    width: 115px;
+    width: 110px;
 }
 
 input:focus {
     outline: none;
 }
+
