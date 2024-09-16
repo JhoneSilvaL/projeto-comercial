@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, flash
+from flask import Flask, render_template, request, url_for, flash, redirect
 import json, os
 from flask_migrate import Migrate
 from models import *
@@ -45,14 +45,6 @@ def usuario_create():
 @app.route('/cidade_create')
 def cidade_create():
     return render_template('cidade_create.html')
-
-@app.route('/confirmar-cadastro')
-def confirmaCadastro():
-    return render_template('resultadocadastro.html')
-
-@app.route('/exibir-capitais')
-def exibirCapitais():
-    return render_template('exibirCapitais.html')
 
 @app.route('/autenticar', methods=['POST'])
 def autenticar():

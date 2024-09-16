@@ -55,4 +55,4 @@ def autenticar():
 def logoff():
     logout_user()
     flash('Usuário desconectado do sistema')
-    return redirect('/login')
+    return redirect('/')
