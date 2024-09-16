@@ -1,14 +1,17 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-
+    {% if current_user.is_authenticated %}
     <a href="{{url_for('cidade.create')}}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Nova Cidade</a>
+    {% endif %}
     <!-- <a href="{{url_for('cidade_create', id=id)}}">Nova Cidade</a> -->
     <ul>
     {% for c in dados %}
         <li>
             {{c.nome}} - {{c.email}} {{c.cidade}} - {{c.estado}}
+            {% if current_user.is_authenticated %}
             <a href="{{url_for('cidade.update', id=c.id)}}">editar</a>
             <a href="{{url_for('cidade.delete', id=c.id)}}">excluir</a>
+            {% endif %}
         </li>
     {% endfor %}
     </ul>
