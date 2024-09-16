@@ -98,3 +98,16 @@ img {
 .figure-caption a:hover {
   text-decoration: underline; /* Sublinhado ao passar o mouse */
 }
+footer {
+  background-color: transparent; /* Cor de fundo do footer */
+  color: white; /* Cor do texto */
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
