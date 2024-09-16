@@ -51,6 +51,17 @@
         </div>
     </nav>
     <main>
+        {% set mensagens = get_flashed_messages(with_categories=true) %}
+        {% if mensagens %}
+            <div>
+                <ul>
+                {% for cat, m in mensagens %}
+                    <li class="alert alert-{{cat}}">{{m}}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
         {% block conteudo %}
         {% endblock %}
     </main>

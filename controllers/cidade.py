@@ -7,7 +7,7 @@ from flask_login import login_required
 bp_cidade = Blueprint("cidade", __name__, template_folder='templates')
 
 @bp_cidade.route('/recovery')
-@login_required
+# @login_required
 def recovery():
     dados = Cidade.query.all()
     return render_template('cidade_recovery.html', dados=dados)
@@ -44,7 +44,6 @@ def update(id):
         db.session.add(c)
         db.session.commit()
         return redirect(url_for('cidade.recovery'))
-
 
 @bp_cidade.route('/delete/<id>', methods=['GET', 'POST'])
 @login_required
