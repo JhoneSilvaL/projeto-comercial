@@ -48,7 +48,7 @@ def autenticar():
         login_user(usuario)
         return redirect(url_for('cidade.recovery'))
     else:
-        flash('Login ou senha incorretos')
+        flash('Login ou senha incorretos' 'danger')
         return redirect('/login')
 
 @bp_usuario.route('/logoff')

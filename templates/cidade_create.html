@@ -1,34 +1,34 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-<form action="{{url_for('cidade.create')}}" method="POST"></form>
+<form action="{{url_for('cidade.create')}}" method="POST">
     <div id="login">
 
     <div class="caixa">
         
         <img src="static/imgs/logo.jpg" alt="">
-        <h1>Cadastre sua Cidade e Estado</h1>
+        <h1>Cadastre sua Cidade e Estados</h1>
 
         <div class="nome">
-            <input type="text" placeholder="Nome">
+            <input type="text" name="nome" placeholder="Nome">
         </div>
 
         <div class="email">
-            <input type="email" placeholder="E-mail">
+            <input type="email" name="email" placeholder="E-mail">
         </div>
 
         <div class="cidade">
-            <input type="text" placeholder="Cidade">
+            <input type="text" name="cidade" placeholder="Cidade">
         </div>
 
         <div class="estado">
-            <input type="text" placeholder="Estado">
+            <input type="text" name="estado" placeholder="Estado">
         </div>
 
 
 
         <div class="cadastrar"><br>
         
-            <input type="submit" value="Cadastrar">
+            <button class="cadastrar" type="submit">Cadastrar</button>
         </div>
 
     </div>

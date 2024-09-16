@@ -107,7 +107,7 @@ a {
     margin-top: 15px;
 }
 
-.cadastrar input {
+.entrar button {
     cursor: pointer;
     width: 120px;
     height: 40px;
@@ -117,9 +117,24 @@ a {
     color: #faf9f9;
 }
 
-.cadastrar input::hover{
+.entrar button::hover{
     background-color: #0056b3;
 }
+
+.cadastrar button{
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #1e1c2e;
+    color: #faf9f9;
+}
+
+.cadastrar button::hover{
+    background-color: #0056b3;
+}
+
 
 input::placeholder {
     color: #b6b6b6;

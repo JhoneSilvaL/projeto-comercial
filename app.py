@@ -38,13 +38,13 @@ def index():
 def login ():
     return render_template('login.html')
 
-@app.route('/novo-usuario')
-def novoUsuario ():
+@app.route('/usuario_create.html')
+def usuario_create():
     return render_template('usuario_create.html')
 
-@app.route('/cadastro-capitais')
-def cadastroCapitais():
-    return render_template('cadastroCapitais.html')
+@app.route('/cidade_create')
+def cidade_create():
+    return render_template('cidade_create.html')
 
 @app.route('/confirmar-cadastro')
 def confirmaCadastro():

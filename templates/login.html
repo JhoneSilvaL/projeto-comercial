@@ -25,17 +25,17 @@
                 <img src="static/imgs/usuario.png" alt="">
                 <h1>LOGIN</h1>
 
-                <div class="usuario">
-                    <input type="text" placeholder="usuario">
+                <div class="email">
+                    <input type="text" name="email" placeholder="email">
                 </div>
 
                 <div class="senha">
-                    <input type="text" placeholder="Senha">
+                    <input type="text" name="senha" placeholder="Senha">
                 </div>
 
                 <div class="entrar">
-                    <p>Ainda não tem uma conta? <a href="{{url_for('novoUsuario')}}">Crie uma.</a></p>
-                    <input type="submit" value="Entrar">
+                    <p>Ainda não tem uma conta? <a href="{{url_for('usuario_create')}}">Crie uma.</a></p>
+                    <button class="entrar" type="submit">Entrar</button>
                 </div>
 
             </div>
