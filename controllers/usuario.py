@@ -46,7 +46,7 @@ def autenticar():
     print(usuario)
     if (usuario and usuario.senha == senha):
         login_user(usuario)
-        return redirect(url_for('cidade.recovery'))
+        return redirect(url_for('produto.recovery'))
     else:
         flash('Login ou senha incorretos')
         return redirect('/login')
