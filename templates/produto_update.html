@@ -1,36 +1,40 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-<form action="{{url_for('cidade.update', id=c.id)}}" method="POST">
+<form action="{{ url_for('produto.update', id=produto.id) }}" method="POST" enctype="multipart/form-data">
     <div id="login">
+        <div class="caixa">
+            <img src="/static/imgs/logo.jpg" alt="">
+            <h1>Atualize seu Produto</h1>
 
-    <div class="caixa">
-        
-        <img src="/static/imgs/logo.jpg" alt="">
-        <h1>Cadastre sua Cidade e Estado</h1>
+            <div class="nome">
+                <input type="text" name="nome" placeholder="Nome" value="{{ produto.nome }}" required>
+            </div>
 
-        <div class="nome">
-            <input type="text" name="nome" placeholder="Nome" value="{{c.nome}}">
+            <div class="descricao">
+                <textarea name="descricao" placeholder="Descrição" required>{{ produto.descricao }}</textarea>
+            </div>
+
+            <div class="preco">
+                <input type="number" name="preco" placeholder="Preço" step="0.01" value="{{ produto.preco }}" required>
+            </div>
+
+            <div class="categoria">
+                <select name="categoria_id" required>
+                    <option value="" disabled selected>Selecione a Categoria</option>
+                    {% for categoria in categorias %}
+                        <option value="{{ categoria.id }}" {% if categoria.id == produto.categoria_id %}selected{% endif %}>{{ categoria.nome }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="imagem">
+                <input type="file" name="imagem" accept="image/*">
+            </div>
+
+            <div class="entrar"><br>
+                <button type="submit">Atualizar</button>
+            </div>
         </div>
-
-        <div class="email">
-            <input type="email" name="email" placeholder="E-mail" value="{{c.email}}">
-        </div>
-
-        <div class="cidade">
-            <input type="text" name="cidade" placeholder="Cidade" value="{{c.cidade}}">
-        </div>
-
-        <div class="estado">
-            <input type="text" name="estado" placeholder="Estado" value="{{c.estado}}">
-        </div>
-
-        <div class="entrar"><br>
-        
-            <button type="submit" value="Cadastrar">Cadastrar</button>
-        </div>
-
-    </div>
-
     </div>
 </form>
 {% endblock %}

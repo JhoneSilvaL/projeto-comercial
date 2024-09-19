@@ -95,7 +95,7 @@ def create_categoria():
 @login_required
 def update(id):
     produto = Produto.query.get_or_404(id)
-    
+
     if request.method == "GET":
         # Enviar categorias disponíveis para o formulário de atualização
         categorias = Categoria.query.all()
@@ -103,16 +103,19 @@ def update(id):
 
     if request.method == "POST":
         try:
+            # Atualiza os campos do produto
             produto.nome = request.form['nome']
             produto.descricao = request.form['descricao']
             produto.preco = request.form['preco']
-            produto.categoria_id = request.form.get('categoria_id')
+            categoria_id = request.form.get('categoria_id')
 
             # Verifica se a categoria existe
-            categoria = Categoria.query.get(produto.categoria_id)
+            categoria = Categoria.query.get(categoria_id)
             if not categoria:
                 flash('Categoria não encontrada.', 'danger')
                 return redirect(request.url)
+
+            produto.categoria_id = categoria_id  # Atualiza a categoria do produto
 
             # Lidar com o upload da nova imagem, se houver
             if 'imagem' in request.files and request.files['imagem'].filename != '':
