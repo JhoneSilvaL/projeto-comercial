@@ -5,19 +5,27 @@ from flask_login import login_required
 import os
 
 bp_categoria = Blueprint("categoria", __name__, template_folder='templates')
+
 @bp_categoria.route('/categoria/create', methods=['GET', 'POST'])
 @login_required
 def create_categoria():
     if request.method == 'POST':
         nome = request.form['nome']
+        
         if nome:
-            nova_categoria = Categoria(nome)
-            db.session.add(nova_categoria)
-            db.session.commit()
-            flash('Categoria criada com sucesso!', 'success')
-            return redirect(url_for('produto.recovery'))  # Redireciona onde desejar
+            # Verifica se a categoria já existe
+            categoria_existente = Categoria.query.filter_by(nome=nome).first()
+            if categoria_existente:
+                flash('A categoria já existe e não pode ser adicionada!', 'danger')
+            else:
+                nova_categoria = Categoria(nome)
+                db.session.add(nova_categoria)
+                db.session.commit()
+                flash('Categoria criada com sucesso!', 'success')
+                return redirect(url_for('categoria.recovery_categoria'))  # Redireciona onde desejar
         else:
             flash('Nome da categoria não pode ser vazio!', 'danger')
+    
     return render_template('categoria_create.html')  # Crie esse template
 
 @bp_categoria.route('/categoria/update/<int:id>', methods=['GET', 'POST'])
@@ -31,7 +39,7 @@ def update_categoria(id):
             categoria.nome = nome
             db.session.commit()
             flash('Categoria atualizada com sucesso!', 'success')
-            return redirect(url_for('produto.recovery'))  # Redireciona onde desejar
+            return redirect(url_for('categoria.recovery_categoria'))  # Redireciona onde desejar
         else:
             flash('Nome da categoria não pode ser vazio!', 'danger')
 
