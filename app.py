@@ -2,15 +2,14 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 import json, os
 from flask_migrate import Migrate
 from models import *
-## from models.cidade import Cidade
 from flask import flash, redirect
 from utils import db, lm
-from controllers.produtos import bp_cidade
+from controllers.produtos import bp_produto
 from controllers.usuario import bp_usuario
 
 
 app = Flask(__name__)
-app.register_blueprint(bp_cidade, url_prefix='/cidade')
+app.register_blueprint(bp_produto, url_prefix='/produto')
 app.register_blueprint(bp_usuario, url_prefix='/usuario')
 
 

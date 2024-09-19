@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, flash, url_for
 from utils import db
-from models.produtos import Produto  # Certifique-se de que o nome esteja correto
+from models.produtos import Produto # Certifique-se de que o nome esteja correto
 from flask import Blueprint
 from flask_login import login_required
 

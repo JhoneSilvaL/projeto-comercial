@@ -1,74 +1,55 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capitais Brasileiras</title>
-    <style>
-        /* Estilos básicos para a página */
-        html {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            text-align: center;
-            padding: 20px;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 0;
-        }
-        h1 {
-            margin: 0;
-        }
-        section {
-            margin-top: 20px;
-        }
-        .capitais-lista {
-            list-style-type: none;
-            padding: 0;
-        }
-        .capitais-lista li {
-            margin: 10px 0;
-        }
-    </style>
-</head>
-<header>
-    <h1>Capitais Brasileiras</h1>
-</header>
-<section class="container">
-    <p>Bem-vindo à página sobre as capitais do Brasil! Aqui está uma lista das capitais das 26 unidades federativas e do Distrito Federal:</p>
-    <ul class="capitais-lista">
-        <li>São Paulo - SP</li>
-        <li>Rio de Janeiro - RJ</li>
-        <li>Brasília - DF</li>
-        <li>Belo Horizonte - MG</li>
-        <li>Porto Alegre - RS</li>
-        <li>Salvador - BA</li>
-        <li>Fortaleza - CE</li>
-        <li>Curitiba - PR</li>
-        <li>Manaus - AM</li>
-        <li>Recife - PE</li>
-        <li>Belém - PA</li>
-        <li>Goiânia - GO</li>
-        <li>São Luís - MA</li>
-        <li>João Pessoa - PB</li>
-        <li>Maceió - AL</li>
-        <li>Aracaju - SE</li>
-        <li>Teresina - PI</li>
-        <li>Vitória - ES</li>
-        <li>Campo Grande - MS</li>
-        <li>Cuiabá - MT</li>
-        <li>Palmas - TO</li>
-        <li>Boa Vista - RR</li>
-        <li>Porto Velho - RO</li>
-        <li>Rio Branco - AC</li>
-        <li>Macapá - AP</li>
-        <li>São Gabriel da Cachoeira - AM</li>
-        <li>Rio Branco - AC</li>
-    </ul>
-</section>
+<body>
+
+    <header class="hero">
+        <h1>Bem-vindo à Nossa Loja</h1>
+        <p>Explore nossos produtos e ofertas especiais!</p>
+    </header>
+
+    <section class="container">
+        <h2 class="text-center">Nossos Produtos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Produto 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Produto 1</h5>
+                        <p class="card-text">Descrição breve do produto 1.</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Produto 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Produto 2</h5>
+                        <p class="card-text">Descrição breve do produto 2.</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Produto 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Produto 3</h5>
+                        <p class="card-text">Descrição breve do produto 3.</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Nossa Loja. Todos os direitos reservados.</p>
+        <p>Email: <a href="mailto:contato@exemplo.com" style="color: white;">contato@exemplo.com</a></p>
+        <p>Telefone: (11) 99999-9999</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
 {% endblock %}

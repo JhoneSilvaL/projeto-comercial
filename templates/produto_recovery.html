@@ -1,42 +1,44 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Produtos</h1>
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped text-center">
-                <thead>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Produtos</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                    <th>Preço</th>
+                    {% if current_user.is_authenticated %}
+                    <th>Ações</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in dados %}
                     <tr>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Cidade</th>
-                        <th>Estado</th>
-                        <th>Preço</th>
+                        <td>{{ produto.nome }}</td>
+                        <td>{{ produto.descricao }}</td>
+                        <td>{{ produto.cidade }}</td>
+                        <td>{{ produto.estado }}</td>
+                        <td>R$ {{ produto.preco | number_format(2, ',', '.') }}</td>
                         {% if current_user.is_authenticated %}
-                        <th>Ações</th>
+                        <td>
+                            <a href="{{ url_for('produto.update', id=produto.id) }}" class="btn btn-secondary btn-sm" role="button">Editar</a>
+                            <a href="{{ url_for('produto.delete', id=produto.id) }}" class="btn btn-danger btn-sm" role="button">Excluir</a>
+                        </td>
                         {% endif %}
                     </tr>
-                </thead>
-                <tbody>
-                    {% for produto in dados %}
-                        <tr>
-                            <td>{{ produto.nome }}</td>
-                            <td>{{ produto.descricao }}</td>
-                            <td>{{ produto.cidade }}</td>
-                            <td>{{ produto.estado }}</td>
-                            <td>R$ {{ produto.preco | number_format(2, ',', '.') }}</td>
-                            {% if current_user.is_authenticated %}
-                            <td>
-                                <a href="{{ url_for('produto.update', id=produto.id) }}" class="btn btn-secondary btn-sm" role="button">Editar</a>
-                                <a href="{{ url_for('produto.delete', id=produto.id) }}" class="btn btn-danger btn-sm" role="button">Excluir</a>
-                            </td>
-                            {% endif %}
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            {% if current_user.is_authenticated %}
-            <a href="{{ url_for('produto.create') }}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Novo Produto</a>
-            {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if current_user.is_authenticated %}
+        <div class="text-center mt-4">
+            <a href="{{ url_for('produto.create') }}" class="btn btn-success" role="button">Novo Produto</a>
         </div>
+        {% endif %}
     </div>
+</div>
 {% endblock %}

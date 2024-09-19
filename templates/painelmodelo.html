@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,32 @@
         
     <title>Document</title>
 </head>
-
+<style>
+    /* Estilos básicos para a página */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .hero {
+        background-color: #4CAF50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    .capitais-lista {
+        list-style-type: none;
+        padding: 0;
+    }
+    .capitais-lista li {
+        margin: 10px 0;
+    }
+    .promoções {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f8f9fa;
+    }
+</style>
 <body>
     <nav class="navbar navbar-expand-sm custom-navbar">
         <div class="container">
@@ -23,22 +48,22 @@
             <div class="collapse navbar-collapse d-flex justify-content-center align-items-center" id="navbarNav">
                 <ul class="navbar-nav nav-underline mb-2 mb-sm-0 d-flex">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('index')}}">Página Inicial</a>
+                        <a class="nav-link" href="{{ url_for('index') }}">Página Inicial</a>
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('cidade_create')}}">Cadastrar Capitais</a>
+                        <a class="nav-link" href="{{ url_for('produto.create') }}">Cadastrar Produto</a>
                     </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('cidade.recovery')}}">Exibir Capitais</a>
+                        <a class="nav-link" href="{{ url_for('produto.recovery') }}">Exibir Produtos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
                         {% if current_user.is_authenticated %}
-                        <a href="{{url_for('usuario.logoff')}}" class="btn btn-primary">Sair ({{current_user.nome}})</a>
+                        <a href="{{ url_for('usuario.logoff') }}" class="btn btn-primary">Sair ({{ current_user.nome }})</a>
                         {% endif %}
                     </li>
                 </ul>
@@ -53,16 +78,14 @@
             </div>
         </div>
     </nav>
-    <footer>
-        <p>&copy; <span id="ano"></span> Criado e desenvolvido By: Erinaldo e Jhone.</p>
-    </footer>
+
     <main>
         {% set mensagens = get_flashed_messages(with_categories=true) %}
         {% if mensagens %}
             <div>
                 <ul>
                 {% for cat, m in mensagens %}
-                    <li class="alert alert-{{cat}}">{{m}}</li>
+                    <li class="alert alert-{{ cat }}">{{ m }}</li>
                 {% endfor %}
                 </ul>
             </div>
@@ -71,6 +94,13 @@
         {% block conteudo %}
         {% endblock %}
     </main>
+
+    <footer>
+        <p>&copy; <span id="ano"></span> Criado e desenvolvido por: Sua Empresa.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
