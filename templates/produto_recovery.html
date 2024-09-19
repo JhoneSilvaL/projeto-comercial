@@ -20,41 +20,48 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table table-bordered table-striped text-center">
-            <thead>
-                <tr>
-                    <th>Imagem</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Preço</th>
-                    {% if current_user.is_authenticated %}
-                    <th>Ações</th>
-                    {% endif %}
-                </tr>
-            </thead>
-            <tbody>
-                {% for produto in produtos %}
+        {% if produtos %}
+            <table class="table table-bordered table-striped text-center">
+                <thead>
                     <tr>
-                        <td>
-                            {% if produto.imagem %}
-                                <img src="{{ url_for('static', filename='uploads/' + produto.imagem) }}" alt="{{ produto.nome }}" style="width: 100px; height: 100px; object-fit: cover;">
-                            {% else %}
-                                <img src="/static/imgs/default.png" alt="Imagem padrão" style="width: 100px; height: 100px; object-fit: cover;">
-                            {% endif %}
-                        </td>
-                        <td>{{ produto.nome }}</td>
-                        <td>{{ produto.descricao }}</td>
-                        <td>R$ {{ produto.preco | number_format(2, ',', '.') }}</td>
+                        <th>Imagem</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
                         {% if current_user.is_authenticated %}
-                        <td>
-                            <a href="{{ url_for('produto.update', id=produto.id) }}" class="btn btn-secondary btn-sm" role="button">Editar</a>
-                            <a href="{{ url_for('produto.delete', id=produto.id) }}" class="btn btn-danger btn-sm" role="button">Excluir</a>
-                        </td>
+                        <th>Ações</th>
                         {% endif %}
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                        <tr>
+                            <td>
+                                {% if produto.imagem %}
+                                    <img src="{{ url_for('static', filename='uploads/' + produto.imagem) }}" alt="{{ produto.nome }}" style="width: 100px; height: 100px; object-fit: cover;">
+                                {% else %}
+                                    <img src="/static/imgs/default.png" alt="Imagem padrão" style="width: 100px; height: 100px; object-fit: cover;">
+                                {% endif %}
+                            </td>
+                            <td>{{ produto.nome }}</td>
+                            <td>{{ produto.descricao }}</td>
+                            <td>R$ {{ produto.preco | number_format(2, ',', '.') }}</td>
+                            {% if current_user.is_authenticated %}
+                            <td>
+                                <a href="{{ url_for('produto.update', id=produto.id) }}" class="btn btn-secondary btn-sm" role="button">Editar</a>
+                                <a href="{{ url_for('produto.delete', id=produto.id) }}" class="btn btn-danger btn-sm" role="button">Excluir</a>
+                            </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-warning text-center" role="alert">
+                Nenhum produto encontrado.
+            </div>
+        {% endif %}
+        
         {% if current_user.is_authenticated %}
         <div class="text-center mt-4">
             <a href="{{ url_for('produto.create') }}" class="btn btn-success" role="button">Novo Produto</a>
