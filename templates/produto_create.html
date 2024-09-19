@@ -15,7 +15,12 @@
                 <input type="number" name="preco" placeholder="Preço" step="0.01" required>
             </div>
             <div class="categoria">
-                <input type="number" name="categoria_id" placeholder="ID da Categoria" required>
+                <select name="categoria_id" required>
+                    <option value="">Selecione uma Categoria</option>
+                    {% for categoria in categorias %}
+                        <option value="{{ categoria.id }}">{{ categoria.nome }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="imagem">
                 <input type="file" name="imagem" accept="image/*" required>

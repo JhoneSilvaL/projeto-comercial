@@ -1,13 +1,8 @@
 from utils import db
 from flask_login import UserMixin
+from .categorias import Categoria
 
-class Categoria(db.Model):
-    __tablename__ = 'categorias'
-    id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(100), nullable=False)
-    produtos = db.relationship('Produto', backref='categoria', lazy=True)
-
-class Produto(db.Model, UserMixin):
+class Produto(db.Model):
     __tablename__ = 'produtos'
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(100), nullable=False)
@@ -23,3 +18,8 @@ class Produto(db.Model, UserMixin):
         self.preco = preco
         self.categoria_id = categoria_id
         self.imagem = imagem
+
+    @staticmethod
+    def valida_preco(preco):
+        if preco < 0:
+            raise ValueError("O preço não pode ser negativo.")
