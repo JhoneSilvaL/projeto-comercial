@@ -1,0 +1,11 @@
+{% extends "painelmodelo.html" %}
+{% block conteudo %}
+<h1>Deletar Categoria</h1>
+<p>Tem certeza que deseja deletar a categoria: {{ categoria.nome }}?</p>
+<form action="{{ url_for('categoria.delete_categoria', id=categoria.id) }}" method="POST">
+    <div class="entrar">
+        <button type="submit">Deletar</button>
+        <a href="{{ url_for('produto.recovery') }}">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

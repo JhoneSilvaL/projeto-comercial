@@ -1,0 +1,14 @@
+{% extends "painelmodelo.html" %}
+{% block conteudo %}
+<form action="{{ url_for('categoria.update_categoria', id=categoria.id) }}" method="POST">
+    <div class="caixa">
+        <h1>Atualizar Categoria</h1>
+        <div class="nome">
+            <input type="text" name="nome" placeholder="Nome da Categoria" value="{{ categoria.nome }}" required>
+        </div>
+        <div class="entrar">
+            <button type="submit">Atualizar</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

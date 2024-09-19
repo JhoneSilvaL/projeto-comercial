@@ -1,0 +1,26 @@
+{% extends "painelmodelo.html" %}
+{% block conteudo %}
+<h1>Lista de Categorias</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoria in categorias %}
+        <tr>
+            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.nome }}</td>
+            <td>
+                <a href="{{ url_for('categoria.update_categoria', id=categoria.id) }}">Atualizar</a>
+                <a href="{{ url_for('categoria.delete_categoria', id=categoria.id) }}">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('categoria.create_categoria') }}">Criar Nova Categoria</a>
+{% endblock %}
