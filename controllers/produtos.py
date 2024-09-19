@@ -18,10 +18,15 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # Rota para visualizar os produtos cadastrados
-@bp_produto.route('/recovery')
-#@login_required
+@bp_produto.route('/recovery', methods=['GET'])
 def recovery():
-    produtos = Produto.query.all()
+    search_query = request.args.get('search', '')  # Obtém o termo de busca
+
+    if search_query:
+        produtos = Produto.query.filter(Produto.nome.ilike(f'%{search_query}%')).all()  # Filtra produtos pelo nome
+    else:
+        produtos = Produto.query.all()  # Recupera todos os produtos se não houver busca
+
     return render_template('produto_recovery.html', produtos=produtos)
 
 # Rota para criar um novo produto

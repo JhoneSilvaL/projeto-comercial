@@ -1,7 +1,24 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <div class="container mt-5">
     <h1 class="text-center mb-4">Produtos</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-6 offset-md-3">
+            <form action="{{ url_for('produto.recovery') }}" method="GET" class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Pesquisar por nome do produto" required>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mb-3">
+        <a href="{{ url_for('produto.recovery') }}" class="btn btn-secondary">Voltar para Todos os Produtos</a>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-bordered table-striped text-center">
             <thead>
