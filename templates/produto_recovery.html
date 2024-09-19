@@ -6,10 +6,9 @@
         <table class="table table-bordered table-striped text-center">
             <thead>
                 <tr>
+                    <th>Imagem</th>
                     <th>Nome</th>
                     <th>Descrição</th>
-                    <th>Cidade</th>
-                    <th>Estado</th>
                     <th>Preço</th>
                     {% if current_user.is_authenticated %}
                     <th>Ações</th>
@@ -17,12 +16,17 @@
                 </tr>
             </thead>
             <tbody>
-                {% for produto in dados %}
+                {% for produto in produtos %}
                     <tr>
+                        <td>
+                            {% if produto.imagem %}
+                                <img src="{{ url_for('static', filename='uploads/' + produto.imagem) }}" alt="{{ produto.nome }}" style="width: 100px; height: 100px; object-fit: cover;">
+                            {% else %}
+                                <img src="/static/imgs/default.png" alt="Imagem padrão" style="width: 100px; height: 100px; object-fit: cover;">
+                            {% endif %}
+                        </td>
                         <td>{{ produto.nome }}</td>
                         <td>{{ produto.descricao }}</td>
-                        <td>{{ produto.cidade }}</td>
-                        <td>{{ produto.estado }}</td>
                         <td>R$ {{ produto.preco | number_format(2, ',', '.') }}</td>
                         {% if current_user.is_authenticated %}
                         <td>

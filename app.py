@@ -1,17 +1,15 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
-import json, os
+import os
+import locale
 from flask_migrate import Migrate
 from models import *
-from flask import flash, redirect
 from utils import db, lm
 from controllers.produtos import bp_produto
 from controllers.usuario import bp_usuario
 
-
 app = Flask(__name__)
 app.register_blueprint(bp_produto, url_prefix='/produto')
 app.register_blueprint(bp_usuario, url_prefix='/usuario')
-
 
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
@@ -28,6 +26,17 @@ db.init_app(app)
 lm.init_app(app)
 
 migrate = Migrate(app, db)
+
+locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+
+@app.template_filter('number_format')
+def number_format(value, decimal_places=2, decimal_marker=',', thousands_marker='.'):
+    if value is None:
+        return ""
+    try:
+        return f"{value:,.{decimal_places}f}".replace(',', decimal_marker).replace('.', thousands_marker)
+    except (ValueError, TypeError):
+        return value
 
 @app.route('/')
 def index():
