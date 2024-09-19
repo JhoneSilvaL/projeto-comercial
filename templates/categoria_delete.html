@@ -1,11 +1,15 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-<h1>Deletar Categoria</h1>
-<p>Tem certeza que deseja deletar a categoria: {{ categoria.nome }}?</p>
-<form action="{{ url_for('categoria.delete_categoria', id=categoria.id) }}" method="POST">
-    <div class="entrar">
-        <button type="submit">Deletar</button>
-        <a href="{{ url_for('produto.recovery') }}">Cancelar</a>
+<div class="container mt-5">
+    <div class="card p-4">
+        <h1 class="text-center mb-4">Deletar Categoria</h1>
+        <p class="text-center">Tem certeza que deseja deletar a categoria: <strong>{{ categoria.nome }}</strong>?</p>
+        <form action="{{ url_for('categoria.delete_categoria', id=categoria.id) }}" method="POST" class="text-center">
+            <div class="mt-4">
+                <button type="submit" class="btn btn-danger">Deletar</button>
+                <a href="{{ url_for('produto.recovery') }}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 {% endblock %}
