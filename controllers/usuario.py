@@ -30,7 +30,7 @@ def create():
         u = Usuario(nome, email, senha, senhaconf)
         db.session.add(u)
         db.session.commit()
-        return redirect(url_for('produto.recovery'))
+        return redirect(url_for('/login'))
     
 @lm.user_loader
 def load_user(id):
