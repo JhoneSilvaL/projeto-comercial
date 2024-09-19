@@ -5,8 +5,8 @@ from flask_login import login_required
 import os
 
 bp_categoria = Blueprint("categoria", __name__, template_folder='templates')
-@login_required
 @bp_categoria.route('/categoria/create', methods=['GET', 'POST'])
+@login_required
 def create_categoria():
     if request.method == 'POST':
         nome = request.form['nome']
