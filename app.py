@@ -7,6 +7,7 @@ from utils import db, lm  # Certifique-se de que db e lm são inicializados corr
 from controllers.produtos import bp_produto
 from controllers.usuario import bp_usuario
 from controllers.categorias import bp_categoria
+from models.produtos import Produto
 
 # Inicializa a aplicação Flask
 app = Flask(__name__)
@@ -55,7 +56,8 @@ def number_format(value, decimal_places=2, decimal_marker=',', thousands_marker=
 # Rota inicial
 @app.route('/')
 def index():
-    return render_template('paginaInicial.html')
+    produtos = Produto.query.all()  # Recupera todos os produtos cadastrados
+    return render_template('paginaInicial.html', produtos=produtos)
 
 # Rota de login
 @app.route('/login')

@@ -19,7 +19,7 @@ def allowed_file(filename):
 
 # Rota para visualizar os produtos cadastrados
 @bp_produto.route('/recovery')
-@login_required
+#@login_required
 def recovery():
     produtos = Produto.query.all()
     return render_template('produto_recovery.html', produtos=produtos)

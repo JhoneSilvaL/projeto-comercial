@@ -10,43 +10,31 @@
     <section class="container">
         <h2 class="text-center">Nossos Produtos</h2>
         <div class="row">
-            <div class="col-md-4">
-                <div class="card product-card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Produto 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Produto 1</h5>
-                        <p class="card-text">Descrição breve do produto 1.</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+            {% for produto in produtos %}
+                {% if loop.index <= 3 %}
+                    <div class="col-md-4">
+                        <div class="card product-card">
+                            <img src="{{ url_for('static', filename='uploads/' ~ produto.imagem) }}" class="card-img-top" alt="{{ produto.nome }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ produto.nome }}</h5>
+                                <p class="card-text">{{ produto.descricao }}</p>
+                                <p class="card-text">Preço: {{ produto.preco | number_format(2, ',', '.') }}</p>
+                                <a href="#" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card product-card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Produto 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Produto 2</h5>
-                        <p class="card-text">Descrição breve do produto 2.</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card product-card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Produto 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Produto 3</h5>
-                        <p class="card-text">Descrição breve do produto 3.</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('produto.recovery') }}" class="btn btn-secondary">Ver Mais</a>
         </div>
     </section>
 
     <footer class="footer">
         <p>&copy; 2024 Nossa Loja. Todos os direitos reservados.</p>
-        <p>Email: <a href="mailto:contato@exemplo.com" style="color: white;">contato@exemplo.com</a></p>
-        <p>Telefone: (11) 99999-9999</p>
+        <p>Email: <a href="mailto:dev.jhonesilva@gmail.com" style="color: white;">dev.jhonesilva@gmail.com</a></p>
+        <p>Telefone: (84) 9 4002-8922</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
