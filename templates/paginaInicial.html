@@ -10,21 +10,49 @@
     <section class="container">
         <h2 class="text-center">Nossos Produtos</h2>
         <div class="row">
-            {% for produto in produtos %}
-                {% if loop.index <= 3 %}
+            {% if produtos and produtos|length > 0 %}
+                {% for produto in produtos[:3] %}
                     <div class="col-md-4">
                         <div class="card product-card">
                             <img src="{{ url_for('static', filename='uploads/' ~ produto.imagem) }}" class="card-img-top" alt="{{ produto.nome }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ produto.nome }}</h5>
                                 <p class="card-text">{{ produto.descricao }}</p>
-                                <p class="card-text">Preço: {{ produto.preco | number_format(2, ',', '.') }}</p>
+                                <p class="card-text">Preço: R$ {{ produto.preco | number_format(2, ',', '.') }}</p>
                                 <a href="#" class="btn btn-primary">Comprar</a>
                             </div>
                         </div>
                     </div>
-                {% endif %}
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/imgs/comercial/imagem1.jpg" class="card-img-top" alt="Produto Padrão">
+                        <div class="card-body">
+                            <h5 class="card-title">Produto Indisponível</h5>
+                            <p class="card-text">Nenhum produto disponível no momento.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/imgs/comercial/imagem2.jpg" class="card-img-top" alt="Produto Padrão">
+                        <div class="card-body">
+                            <h5 class="card-title">Produto Indisponível</h5>
+                            <p class="card-text">Nenhum produto disponível no momento.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card product-card">
+                        <img src="/static/imgs/comercial/imagem3.jpg" class="card-img-top" alt="Produto Padrão">
+                        <div class="card-body">
+                            <h5 class="card-title">Produto Indisponível</h5>
+                            <p class="card-text">Nenhum produto disponível no momento.</p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
         <div class="text-center mt-4">
             <a href="{{ url_for('produto.recovery') }}" class="btn btn-secondary">Ver Mais</a>
