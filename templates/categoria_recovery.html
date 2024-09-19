@@ -1,26 +1,32 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-<h1>Lista de Categorias</h1>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for categoria in categorias %}
-        <tr>
-            <td>{{ categoria.id }}</td>
-            <td>{{ categoria.nome }}</td>
-            <td>
-                <a href="{{ url_for('categoria.update_categoria', id=categoria.id) }}">Atualizar</a>
-                <a href="{{ url_for('categoria.delete_categoria', id=categoria.id) }}">Deletar</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<a href="{{ url_for('categoria.create_categoria') }}">Criar Nova Categoria</a>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Lista de Categorias</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.id }}</td>
+                    <td>{{ categoria.nome }}</td>
+                    <td>
+                        <a href="{{ url_for('categoria.update_categoria', id=categoria.id) }}" class="btn btn-secondary btn-sm" role="button">Atualizar</a>
+                        <a href="{{ url_for('categoria.delete_categoria', id=categoria.id) }}" class="btn btn-danger btn-sm" role="button">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('categoria.create_categoria') }}" class="btn btn-success" role="button">Criar Nova Categoria</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

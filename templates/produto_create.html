@@ -1,32 +1,40 @@
 {% extends "painelmodelo.html" %}
+
 {% block conteudo %}
 <div class="container mt-5">
     <h1 class="text-center mb-4">Cadastre seu Produto</h1>
     <form action="{{ url_for('produto.create') }}" method="POST" enctype="multipart/form-data">
-        <div class="caixa">
-            <img src="/static/imgs/logo.jpg" alt="">
-            <div class="nome">
-                <input type="text" name="nome" placeholder="Nome do Produto" required>
-            </div>
-            <div class="descricao">
-                <textarea name="descricao" placeholder="Descrição do Produto" required></textarea>
-            </div>
-            <div class="preco">
-                <input type="number" name="preco" placeholder="Preço" step="0.01" required>
-            </div>
-            <div class="categoria">
-                <select name="categoria_id" required>
-                    <option value="">Selecione uma Categoria</option>
-                    {% for categoria in categorias %}
-                        <option value="{{ categoria.id }}">{{ categoria.nome }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="imagem">
-                <input type="file" name="imagem" accept="image/*" required>
-            </div>
-            <div class="cadastrar"><br>
-                <button class="cadastrar" type="submit">Cadastrar</button>
+        <div class="card">
+            <div class="card-body">
+                <img src="/static/imgs/logo.jpg" alt="" class="img-fluid mb-4 mx-auto d-block">
+                <div class="form-group">
+                    <label for="nome">Nome do Produto</label>
+                    <input type="text" name="nome" class="form-control" placeholder="Nome do Produto" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição do Produto</label>
+                    <textarea name="descricao" class="form-control" placeholder="Descrição do Produto" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="preco">Preço</label>
+                    <input type="number" name="preco" class="form-control" placeholder="Preço" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="categoria_id">Categoria</label>
+                    <select name="categoria_id" class="form-control" required>
+                        <option value="">Selecione uma Categoria</option>
+                        {% for categoria in categorias %}
+                            <option value="{{ categoria.id }}">{{ categoria.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="imagem">Imagem</label>
+                    <input type="file" name="imagem" class="form-control-file" accept="image/*" required>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-success mt-4" type="submit">Cadastrar</button>
+                </div>
             </div>
         </div>
     </form>
