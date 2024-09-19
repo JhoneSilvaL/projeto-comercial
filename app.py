@@ -5,7 +5,7 @@ from models import *
 ## from models.cidade import Cidade
 from flask import flash, redirect
 from utils import db, lm
-from controllers.cidade import bp_cidade
+from controllers.produtos import bp_cidade
 from controllers.usuario import bp_usuario
 
 
@@ -42,9 +42,9 @@ def login ():
 def usuario_create():
     return render_template('usuario_create.html')
 
-@app.route('/cidade_create')
-def cidade_create():
-    return render_template('cidade_create.html')
+@app.route('/produto_create')
+def produto_create():
+    return render_template('produto_create.html')
 
 @app.route('/autenticar', methods=['POST'])
 def autenticar():
@@ -79,40 +79,6 @@ def cadastro_usuarios():
             flash('Dados cadastrados com sucesso!', 'success')
 
         return redirect(url_for('cadastro_usuarios'))
-
-# @app.route('/add_diario')
-# def add_diario():
-#     c = Cidade('LIC0X83', 'Desenvolvimento Web')
-#     db.session.add(c)
-#     db.session.commit()
-#     return 'Dados inseridos com sucesso!'
-
-# @app.route('/select_diario')
-# def select_diario():
-#     #dados = Diario.query.all() # SELECT * from diario
-#     #for d in dados:
-#     #    print(d.id, d.titulo, d.disciplina)
-
-#     c = Cidade.query.get(2) # SELECT * from diario WHERE id = 2
-#     print(c.id, c.titulo, c.disciplina)
-
-#     return 'Dados obtidos com sucesso'
-
-# @app.route('/update_diario')
-# def update_diario():
-#     c = Cidade.query.get(2)
-#     c.titulo = 'LICX866'
-#     c.disciplina = "Segurança da Informação"
-#     db.session.add(c)
-#     db.session.commit()
-#     return 'Dados atualizados com sucesso'
-
-# @app.route('/delete_diario')
-# def delete_diario():
-#     c = Cidade.query.get(2)
-#     db.session.delete(c)
-#     db.session.commit()
-#     return 'Dados excluídos com sucesso'
 
 @app.errorhandler(401)
 def acesso_negado(e):

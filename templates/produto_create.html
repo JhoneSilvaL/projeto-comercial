@@ -1,0 +1,48 @@
+{% extends "painelmodelo.html" %}
+{% block conteudo %}
+<form action="{{ url_for('produto.create') }}" method="POST">
+    <div id="login">
+
+    <div class="caixa">
+        
+        <img src="/static/imgs/logo.jpg" alt="">
+        <h1>Cadastre seu Produto</h1>
+
+        <div class="nome">
+            <input type="text" name="nome" placeholder="Nome do Produto" required>
+        </div>
+
+        <div class="descricao">
+            <textarea name="descricao" placeholder="Descrição do Produto" required></textarea>
+        </div>
+
+        <div class="cidade">
+            <input type="text" name="cidade" placeholder="Cidade" required>
+        </div>
+
+        <div class="estado">
+            <input type="text" name="estado" placeholder="Estado" required>
+        </div>
+
+        <div class="preco">
+            <input type="number" name="preco" placeholder="Preço" step="0.01" required>
+        </div>
+
+        <div class="categoria">
+            <input type="number" name="categoria_id" placeholder="ID da Categoria" required>
+        </div>
+
+        <div class="input-group">
+            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+            <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Upload</button>
+        </div>
+
+        <div class="cadastrar"><br>
+            <button class="cadastrar" type="submit">Cadastrar</button>
+        </div>
+
+    </div>
+
+    </div>
+</form>
+{% endblock %}

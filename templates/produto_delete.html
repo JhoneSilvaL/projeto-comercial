@@ -1,0 +1,10 @@
+{% extends "painelmodelo.html" %}
+{% block conteudo %}
+
+<form action="{{ url_for('produto.delete', id=produto.id) }}" method="POST" class="text-center">
+  <p>Você realmente deseja excluir o Produto <strong>{{ produto.nome }}</strong>?</p>
+  <button type="submit" class="btn btn-danger">Sim, excluir</button>
+</form>
+<a href="{{ url_for('produto.recovery') }}" class="btn btn-secondary">Cancelar</a>
+
+{% endblock %}
