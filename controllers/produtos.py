@@ -44,6 +44,11 @@ def create():
             preco = request.form['preco']
             categoria_id = request.form.get('categoria_id')
 
+            # Verifica se o produto já existe
+            if Produto.query.filter_by(nome=nome).first():
+                flash('Um produto com esse nome já existe.', 'danger')
+                return redirect(request.url)
+
             # Verifica se a categoria existe
             categoria = Categoria.query.get(categoria_id)
             if not categoria:
