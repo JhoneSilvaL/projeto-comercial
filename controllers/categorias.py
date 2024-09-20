@@ -36,19 +36,14 @@ def update_categoria(id):
     if request.method == 'POST':
         nome = request.form['nome']
         if nome:
-            # Verifica se o nome é o mesmo da categoria atual
-            if nome == categoria.nome:
-                flash('O nome da categoria não pode ser o mesmo!', 'danger')
-            else:
-                # Verifica se a categoria com o novo nome já existe
-                categoria_existente = Categoria.query.filter(Categoria.nome == nome, Categoria.id != id).first()
-                if categoria_existente:
+            categoria_existente = Categoria.query.filter(Categoria.nome == nome, Categoria.id != id).first()
+            if categoria_existente:
                     flash('Uma categoria com esse nome já existe!', 'danger')
-                else:
-                    categoria.nome = nome
-                    db.session.commit()
-                    flash('Categoria atualizada com sucesso!', 'success')
-                    return redirect(url_for('categoria.recovery_categoria'))  # Redireciona onde desejar
+            else:
+                categoria.nome = nome
+                db.session.commit()
+                flash('Categoria atualizada com sucesso!', 'success')
+                return redirect(url_for('categoria.recovery_categoria'))  # Redireciona onde desejar
         else:
             flash('Nome da categoria não pode ser vazio!', 'danger')
 
