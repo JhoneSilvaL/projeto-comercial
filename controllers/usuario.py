@@ -3,6 +3,7 @@ from utils import db, lm
 from models.usuario import Usuario
 from flask import Blueprint
 from flask_login import login_user, logout_user
+from flask_login import current_user
 import hashlib
 
 bp_usuario = Blueprint("usuario", __name__, template_folder='templates')
@@ -46,16 +47,19 @@ def load_user(id):
 
 @bp_usuario.route('/autenticar', methods=['POST'])
 def autenticar():
+    if current_user.is_authenticated:
+        flash('Você já está logado. Por favor, desconecte-se antes de fazer login com outra conta.', 'warning')
+        return redirect(url_for('produto.recovery'))
+
     email = request.form['email'] 
     senha = request.form['senha']
     usuario = Usuario.query.filter_by(email=email).first()
 
-    print(usuario)
-    if (usuario and usuario.senha == senha):
+    if usuario and usuario.senha == senha:
         login_user(usuario)
         return redirect(url_for('produto.recovery'))
     else:
-        flash('Login ou senha incorretos')
+        flash('Login ou senha incorretos', 'danger')
         return redirect('/login')
 
 @bp_usuario.route('/logoff')
