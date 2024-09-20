@@ -5,7 +5,7 @@ from flask import Blueprint
 from flask_login import login_user, logout_user
 from flask_login import current_user
 import hashlib
-import bcrypt
+# import bcrypt
 
 bp_usuario = Blueprint("usuario", __name__, template_folder='templates')
 
@@ -35,10 +35,12 @@ def create():
             flash('As senhas não coincidem. Por favor, tente novamente.', 'danger')
             return redirect(url_for('usuario.create'))
 
-        db.session.add()
+        # Criação do usuário
+        u = Usuario(nome, email, senha, senhaconf)
+        db.session.add(u)
         db.session.commit()
         flash('Usuário cadastrado com sucesso!', 'success')
-        return redirect(url_for('usuario.autenticar'))
+        return redirect(url_for('login'))
 
     return render_template('usuario_create.html')
     
