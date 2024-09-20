@@ -5,7 +5,6 @@ from flask import Blueprint
 from flask_login import login_user, logout_user
 from flask_login import current_user
 import hashlib
-# import bcrypt
 
 bp_usuario = Blueprint("usuario", __name__, template_folder='templates')
 
@@ -25,17 +24,14 @@ def create():
         senha = request.form['senha']
         senhaconf = request.form['senhaconf']
 
-        # Verificar se o e-mail já está cadastrado
         if Usuario.query.filter_by(email=email).first():
             flash('Esse e-mail já está cadastrado. Por favor, escolha outro.', 'danger')
             return redirect(url_for('usuario.create'))
 
-        # Verificar se as senhas coincidem
         if senha != senhaconf:
             flash('As senhas não coincidem. Por favor, tente novamente.', 'danger')
             return redirect(url_for('usuario.create'))
 
-        # Criação do usuário
         u = Usuario(nome, email, senha, senhaconf)
         db.session.add(u)
         db.session.commit()

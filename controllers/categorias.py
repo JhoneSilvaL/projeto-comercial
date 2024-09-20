@@ -10,8 +10,7 @@ bp_categoria = Blueprint("categoria", __name__, template_folder='templates')
 @login_required
 def create_categoria():
     if request.method == 'POST':
-        nome = request.form['nome']
-        
+        nome = request.form['nome']  
         if nome:
             # Verifica se a categoria já existe
             categoria_existente = Categoria.query.filter_by(nome=nome).first()
@@ -22,10 +21,9 @@ def create_categoria():
                 db.session.add(nova_categoria)
                 db.session.commit()
                 flash('Categoria criada com sucesso!', 'success')
-                return redirect(url_for('categoria.recovery_categoria'))  # Redireciona onde desejar
+                return redirect(url_for('categoria.recovery_categoria'))
         else:
             flash('Nome da categoria não pode ser vazio!', 'danger')
-    
     return render_template('categoria_create.html')  # Crie esse template
 
 @bp_categoria.route('/categoria/update/<int:id>', methods=['GET', 'POST'])
@@ -43,27 +41,23 @@ def update_categoria(id):
                 categoria.nome = nome
                 db.session.commit()
                 flash('Categoria atualizada com sucesso!', 'success')
-                return redirect(url_for('categoria.recovery_categoria'))  # Redireciona onde desejar
+                return redirect(url_for('categoria.recovery_categoria'))
         else:
             flash('Nome da categoria não pode ser vazio!', 'danger')
-
-    # Retorna o template sempre, tanto para GET quanto se houver erros no POST
     return render_template('categoria_update.html', categoria=categoria)
 
 @bp_categoria.route('/categoria/recovery', methods=['GET'])
 @login_required
 def recovery_categoria():
-    categorias = Categoria.query.all()  # Recupera todas as categorias
-    return render_template('categoria_recovery.html', categorias=categorias)  # Crie esse template
+    categorias = Categoria.query.all()
+    return render_template('categoria_recovery.html', categorias=categorias)
 
 @bp_categoria.route('/categoria/delete/<int:id>', methods=['GET', 'POST'])
 @login_required
 def delete_categoria(id):
     categoria = Categoria.query.get_or_404(id)
-    
     if request.method == 'POST':
         try:
-            # Deletar todos os produtos associados à categoria
             for produto in categoria.produtos:
                 db.session.delete(produto)
                 
@@ -77,5 +71,4 @@ def delete_categoria(id):
             db.session.rollback()
             flash(f'Ocorreu um erro ao deletar a categoria: {str(e)}', 'danger')
             return redirect(url_for('categoria.recovery_categoria'))
-    
     return render_template('categoria_delete.html', categoria=categoria)
