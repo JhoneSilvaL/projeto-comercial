@@ -5,6 +5,7 @@ from flask import Blueprint
 from flask_login import login_user, logout_user
 from flask_login import current_user
 import hashlib
+import bcrypt
 
 bp_usuario = Blueprint("usuario", __name__, template_folder='templates')
 
@@ -29,16 +30,17 @@ def create():
             flash('Esse e-mail já está cadastrado. Por favor, escolha outro.', 'danger')
             return redirect(url_for('usuario.create'))
 
-        # Aqui você pode adicionar a lógica de hashing da senha, se necessário
-        # md5 = hashlib.md5()
-        # md5.update(senha.encode('utf-8'))
-        # senha_cripto = md5.hexdigest()
+        # Verificar se as senhas coincidem
+        if senha != senhaconf:
+            flash('As senhas não coincidem. Por favor, tente novamente.', 'danger')
+            return redirect(url_for('usuario.create'))
 
-        u = Usuario(nome, email, senha)  # Ajuste aqui se você estiver armazenando a senha de forma criptografada
-        db.session.add(u)
+        db.session.add()
         db.session.commit()
         flash('Usuário cadastrado com sucesso!', 'success')
-        return redirect(url_for('usuario.autenticar'))  # Certifique-se de que o URL está correto
+        return redirect(url_for('usuario.autenticar'))
+
+    return render_template('usuario_create.html')
     
 @lm.user_loader
 def load_user(id):
