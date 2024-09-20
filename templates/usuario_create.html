@@ -3,9 +3,8 @@
 <form action="{{ url_for('usuario.create') }}" method="post">
     <div id="login">
         <div class="caixa">
-            <img src="static/imgs/usuario.png" alt="">
+            <img src="{{ url_for('static', filename='imgs/usuario.png') }}" alt="Usuário" class="img-fluid mb-3" style="max-width: 150px;">
             <h1>CADASTRO</h1>
-
             <div class="nome">
                 <input type="text" name="nome" placeholder="Nome" maxlength="45" required>
             </div>
