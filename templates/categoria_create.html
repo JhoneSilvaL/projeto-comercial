@@ -5,7 +5,7 @@
     <form action="{{ url_for('categoria.create_categoria') }}" method="POST">
         <div class="form-group">
             <label for="nome">Nome da Categoria</label>
-            <input type="text" class="form-control" name="nome" required>
+            <input type="text" class="form-control" name="nome" required maxlength="100" placeholder="Nome da Categoria">
         </div>
         <div class="text-center mt-4">
             <button type="submit" class="btn btn-primary">Cadastrar</button>
