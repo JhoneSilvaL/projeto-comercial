@@ -14,23 +14,30 @@ def recovery():
 
 @bp_usuario.route('/create', methods=['GET', 'POST'])
 def create():
-    if request.method=="GET":
+    if request.method == "GET":
         return render_template('usuario_create.html')
 
-    if request.method=="POST":
+    if request.method == "POST":
         nome = request.form['nome']
         email = request.form['email']
         senha = request.form['senha']
         senhaconf = request.form['senhaconf']
-        
-        #md5 = hashlib.md5()
-        #md5.update(senha)
-        #senha_cripto = md5.hexdigest().encode('utf-8')
-        
-        u = Usuario(nome, email, senha, senhaconf)
+
+        # Verificar se o e-mail já está cadastrado
+        if Usuario.query.filter_by(email=email).first():
+            flash('Esse e-mail já está cadastrado. Por favor, escolha outro.', 'danger')
+            return redirect(url_for('usuario.create'))
+
+        # Aqui você pode adicionar a lógica de hashing da senha, se necessário
+        # md5 = hashlib.md5()
+        # md5.update(senha.encode('utf-8'))
+        # senha_cripto = md5.hexdigest()
+
+        u = Usuario(nome, email, senha)  # Ajuste aqui se você estiver armazenando a senha de forma criptografada
         db.session.add(u)
         db.session.commit()
-        return redirect(url_for('/login'))
+        flash('Usuário cadastrado com sucesso!', 'success')
+        return redirect(url_for('usuario.autenticar'))  # Certifique-se de que o URL está correto
     
 @lm.user_loader
 def load_user(id):
