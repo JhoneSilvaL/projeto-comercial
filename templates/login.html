@@ -1,29 +1,24 @@
 {% extends "painelmodelo.html" %}
 {% block conteudo %}
-    <form action="{{url_for('usuario.autenticar')}}" method="post"> 
+<form action="{{ url_for('usuario.autenticar') }}" method="post"> 
+    <div id="login">
+        <div class="caixa">
+            <img src="static/imgs/usuario.png" alt="">
+            <h1>LOGIN</h1>
 
-        <div id="login">
-
-            <div class="caixa">
-                
-                <img src="static/imgs/usuario.png" alt="">
-                <h1>LOGIN</h1>
-
-                <div class="email">
-                    <input type="text" name="email" placeholder="email">
-                </div>
-
-                <div class="senha">
-                    <input type="password" name="senha" placeholder="Senha">
-                </div>
-
-                <div class="entrar">
-                    <p>Ainda não tem uma conta? <a href="{{url_for('usuario_create')}}">Crie uma.</a></p>
-                    <button class="entrar" type="submit">Entrar</button>
-                </div>
-
+            <div class="email">
+                <input type="text" name="email" placeholder="Email" maxlength="40" required>
             </div>
 
+            <div class="senha">
+                <input type="password" name="senha" placeholder="Senha" maxlength="20" required>
+            </div>
+
+            <div class="entrar">
+                <p>Ainda não tem uma conta? <a href="{{ url_for('usuario.create') }}">Crie uma.</a></p>
+                <button class="entrar" type="submit">Entrar</button>
+            </div>
         </div>
-    </form>
-    {% endblock %}
+    </div>
+</form>
+{% endblock %}
